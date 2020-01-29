@@ -1,0 +1,43 @@
+﻿<Window x:Class="WareHouse.View.ReportView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WareHouse.View"
+        xmlns:help ="clr-namespace:WareHouse.Helpers"
+        mc:Ignorable="d"
+        Title="ReporyView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"
+              ItemsSource="{Binding Source={help:EnumBindingExtension {x:Type help:TypeValue}}}"
+              SelectedItem="{Binding Filter}" Grid.Column="2"/>
+        </Grid>
+        <DataGrid ItemsSource="{Binding FilteredList}" AutoGenerateColumns="False"
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Дата поступления" Binding="{Binding AcceptDate}"/>
+                <DataGridTextColumn Header="Дата поступления на склад" Binding="{Binding InStorageDate}"/>
+                <DataGridTextColumn Header="Дата поступления продажи" Binding="{Binding SaleDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker x:Name="From"
+                        SelectedDate="{Binding FromDate}" Grid.Column="0">
+            </DatePicker>
+            <DatePicker x:Name="To"
+                        SelectedDate="{Binding ToDate}" Grid.Column="1">
+            </DatePicker>
+        </Grid>
+    </Grid>
+</Window>
