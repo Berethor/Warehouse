@@ -27,7 +27,7 @@
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
                     <DataGrid ItemsSource="{Binding Accepts}" AutoGenerateColumns="False"
-                              Grid.Row="0">
+                              Grid.Row="0" CanUserAddRows="False" CanUserDeleteRows="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                             <DataGridTextColumn Header="Дата поступления" Binding="{Binding AcceptDate}"/>
@@ -38,7 +38,7 @@
             </TabItem>
             
             <TabItem x:Name="SaleTable" Header="Продажи">
-                <DataGrid ItemsSource="{Binding Sales}" AutoGenerateColumns="False">
+                <DataGrid ItemsSource="{Binding Sales}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                         <DataGridTextColumn Header="Дата поступления" Binding="{Binding AcceptDate}"/>
@@ -49,7 +49,7 @@
             </TabItem>
             
             <TabItem x:Name="InStorageTable" Header="Склад">
-                <DataGrid ItemsSource="{Binding InStorages}" AutoGenerateColumns="False">
+                <DataGrid ItemsSource="{Binding InStorages}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                     <DataGrid.RowStyle>
                         <Style TargetType="DataGridRow">
                             <Setter Property="ContextMenu" Value="{DynamicResource conMenu}"/>

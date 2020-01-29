@@ -19,7 +19,7 @@
               SelectedItem="{Binding Filter}" Grid.Column="2"/>
         </Grid>
         <DataGrid ItemsSource="{Binding FilteredList}" AutoGenerateColumns="False"
-                  Grid.Row="1">
+                  Grid.Row="1" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Дата поступления" Binding="{Binding AcceptDate}"/>
