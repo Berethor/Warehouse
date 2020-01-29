@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Data.Entity;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using WareHouse.Data;
 
 namespace WareHouse.Model
@@ -13,6 +11,8 @@ namespace WareHouse.Model
     public class DbInteractionModel : INotifyPropertyChanged
     {
         private WarehouseContext _warehouseContext = new WarehouseContext();
+
+        #region Properties
         public ObservableCollection<Accept> Accept
         {
             get
@@ -40,6 +40,9 @@ namespace WareHouse.Model
                 return _warehouseContext.Sales.Local;
             }
         }
+        #endregion
+
+        #region Public Methods
         public ObservableCollection<object> AllProducts(DateTime FromDate, DateTime ToDate)
         {
             _warehouseContext.InStorages.Load();
@@ -118,7 +121,10 @@ namespace WareHouse.Model
                 throw ex;
             }
         }
+        #endregion
 
+        #region Events
         public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
     }
 }

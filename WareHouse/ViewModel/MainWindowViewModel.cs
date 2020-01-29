@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 using WareHouse.Data;
-using WareHouse.Model;
-using System.Data.Entity;
 using WareHouse.View;
+using WareHouse.Model;
 using WareHouse.Helpers;
 
 namespace WareHouse.ViewModel
@@ -19,6 +14,7 @@ namespace WareHouse.ViewModel
     {
         readonly DbInteractionModel model = new DbInteractionModel();
 
+        #region Properties
         public ObservableCollection<Accept> Accepts => model.Accept;
         public ObservableCollection<InStorage> InStorages => model.InStorages;
         public ObservableCollection<Sale> Sales => model.Sales;
@@ -65,14 +61,20 @@ namespace WareHouse.ViewModel
                     }));
             }
         }
+        #endregion
+
+        #region Public Methods
         public MainWindowViewModel()
         {
         }
+        #endregion
 
+        #region Events
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        #endregion
     }
 }

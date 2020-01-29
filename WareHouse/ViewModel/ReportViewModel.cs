@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using WareHouse.Data;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+
 using WareHouse.Model;
-using WareHouse.Helpers.Converters;
 using WareHouse.Helpers;
 
 namespace WareHouse.ViewModel
@@ -16,6 +12,8 @@ namespace WareHouse.ViewModel
     public class ReportViewModel : INotifyPropertyChanged
     {
         readonly DbInteractionModel model = new DbInteractionModel();
+
+        #region Properties
         private TypeValue _filter;
         public TypeValue Filter
         {
@@ -87,11 +85,14 @@ namespace WareHouse.ViewModel
                 return list;
             }
         }
+        #endregion
 
+        #region Events
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        #endregion
     }
 }

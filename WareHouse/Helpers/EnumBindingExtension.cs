@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Markup;
+using System.ComponentModel;
+
 using WareHouse.Helpers.Converters;
 
 namespace WareHouse.Helpers
