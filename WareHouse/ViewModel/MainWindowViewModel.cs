@@ -22,7 +22,7 @@ namespace WareHouse.ViewModel
         public ObservableCollection<Accept> Accepts => model.Accept;
         public ObservableCollection<InStorage> InStorages => model.InStorages;
         public ObservableCollection<Sale> Sales => model.Sales;
-        
+
         private RelayCommand _addCommand;
         public RelayCommand AddCommand
         {
@@ -56,7 +56,7 @@ namespace WareHouse.ViewModel
         private RelayCommand _sellCommand;
         public RelayCommand SellCommand
         {
-            get 
+            get
             {
                 return _sellCommand ??
                     (_sellCommand = new RelayCommand(a =>

@@ -30,6 +30,14 @@ namespace WareHouse
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
+            Dispatcher.UnhandledException += OnDispatcherUnhandledException;
+        }
+
+        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            var errorMessage = string.Format("Произошла ошибка: {0}", e.Exception.Message);
+            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
         }
     }
 }

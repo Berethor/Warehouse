@@ -75,6 +75,12 @@ namespace WareHouse.Model
         {
             try
             {
+                if(_warehouseContext.Products
+                    .Where(a=> a.CodeId == product.CodeId).Any())
+                {
+                    throw new Exception("Уже существует такой товар");
+                }
+
                 _warehouseContext.Products.Add(product);
                 _warehouseContext.Accepts.Add(new Accept()
                 {
@@ -94,8 +100,7 @@ namespace WareHouse.Model
             }
             catch (Exception ex)
             {
-
-                return false;
+                throw ex;
             }
         }
 
@@ -110,7 +115,7 @@ namespace WareHouse.Model
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
 
